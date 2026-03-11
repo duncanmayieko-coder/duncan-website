@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duncan Mayieko | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#020617;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000
+}
+
+nav a{color:#38bdf8;margin-left:20px;text-decoration:none;font-weight:500}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px 40px 20px;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+}
+
+.profile{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #38bdf8;
+margin-bottom:20px;
+}
+
+h1{font-size:42px;margin-bottom:10px}
+
+.tagline{color:#cbd5f5;margin-bottom:20px}
+
+.btn{
+padding:12px 24px;
+background:#38bdf8;
+border:none;
+border-radius:8px;
+color:#020617;
+font-weight:600;
+cursor:pointer;
+margin:10px
+}
+
+section{max-width:1000px;margin:auto;padding:80px 20px}
+
+h2{margin-bottom:20px;color:#38bdf8}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+transition:0.3s
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4)
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+color:#94a3b8
+}
+
+#loginModal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:none;
+align-items:center;
+justify-content:center
+}
+
+.login-box{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+width:320px;
+text-align:center
+}
+
+input{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:6px;
+border:none
+}
+
+.social a{
+color:#38bdf8;
+margin:0 10px;
+text-decoration:none
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>Duncan</b></div>
+<div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a href="#" onclick="openLogin()">Login</a>
+</div>
+</nav>
+
+<section class="hero">
+<img src="profile.jpg" class="profile" alt="Duncan">
+<h1>Duncan Mayieko</h1>
+<p class="tagline">Future Aeronautical Engineer • Language Enthusiast • Tech Learner</p>
+
+<button class="btn" onclick="downloadCV()">Download CV</button>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="grid">
+<div class="card">
+<p>I am Duncan Mayieko from Kenya. I completed high school in 2025 and I am passionate about aviation, technology and languages. My goal is to study aeronautical engineering and contribute to the future of flight.</p>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">
+<h3>Personal Portfolio Website</h3>
+<p>A modern personal website built using HTML, CSS and JavaScript.</p>
+</div>
+
+<div class="card">
+<h3>Language Learning</h3>
+<p>Practicing English and French communication and helping others learn languages.</p>
+</div>
+
+<div class="card">
+<h3>Python Learning</h3>
+<p>Learning Python programming and exploring artificial intelligence tools.</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="grid">
+<div class="card">
+<p>Email: your-email@example.com</p>
+<p>Location: Kenya</p>
+<p class="social">
+<a href="#">LinkedIn</a>
+<a href="#">GitHub</a>
+</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Duncan Mayieko Portfolio</p>
+</footer>
+
+<div id="loginModal">
+<div class="login-box">
+<h2 style="margin-bottom:15px;color:#38bdf8">Login</h2>
+<input id="username" type="text" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button class="btn" onclick="login()">Login</button>
+<p id="loginMsg" style="margin-top:10px"></p>
+<br>
+<button onclick="closeLogin()" style="background:none;border:none;color:#94a3b8;cursor:pointer">Cancel</button>
+</div>
+</div>
+
+<script>
+function openLogin(){
+ document.getElementById('loginModal').style.display='flex'
+}
+
+function closeLogin(){
+ document.getElementById('loginModal').style.display='none'
+}
+
+function login(){
+ let user=document.getElementById('username').value
+ let pass=document.getElementById('password').value
+ let msg=document.getElementById('loginMsg')
+
+ if(user==='duncan' && pass==='1234'){
+ msg.style.color='#4ade80'
+ msg.innerText='Login successful!'
+ }else{
+ msg.style.color='#f87171'
+ msg.innerText='Invalid username or password'
+ }
+}
+
+function downloadCV(){
+ window.open('cv.pdf')
+}
+</script>
+
+</body>
+</html>
